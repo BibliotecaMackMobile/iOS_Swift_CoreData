@@ -62,7 +62,7 @@
                     <navigationItem key="navigationItem" title="Marcas" id="H6G-Rg-FFm">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="WbD-qv-lks">
                             <connections>
-                                <segue destination="ZN7-im-DvG" kind="show" id="tPf-ak-qLc"/>
+                                <segue destination="ZN7-im-DvG" kind="show" identifier="marcaSegue" id="tPf-ak-qLc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -109,7 +109,7 @@
                     <navigationItem key="navigationItem" id="hrv-Yj-gwY">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="di4-OP-Rhu">
                             <connections>
-                                <segue destination="qa4-vi-LvP" kind="show" id="PAw-zf-Roc"/>
+                                <segue destination="qa4-vi-LvP" kind="show" identifier="produtoSegue" id="PAw-zf-Roc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -118,11 +118,11 @@
             </objects>
             <point key="canvasLocation" x="284" y="469"/>
         </scene>
-        <!--Novo Produto Table View Controller-->
+        <!--Produto Table View Controller-->
         <scene sceneID="9vg-ST-fyz">
             <objects>
-                <tableViewController id="qa4-vi-LvP" customClass="NovoProdutoTableViewController" customModule="CoreData_Swift" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="UtC-Fn-rWo">
+                <tableViewController id="qa4-vi-LvP" customClass="ProdutoTableViewController" customModule="CoreData_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="UtC-Fn-rWo">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
@@ -248,7 +248,7 @@
         <!--Nova Marca View Controller-->
         <scene sceneID="oQn-Tf-PbW">
             <objects>
-                <tableViewController id="ZN7-im-DvG" userLabel="Nova Marca View Controller" customClass="NovaMarcaViewController" customModule="CoreData_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ZN7-im-DvG" userLabel="Nova Marca View Controller" customClass="MarcaViewController" customModule="CoreData_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Xei-3l-oLB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

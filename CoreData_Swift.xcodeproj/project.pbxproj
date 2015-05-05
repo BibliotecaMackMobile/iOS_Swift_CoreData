@@ -8,16 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		924023481ADF42D90028C21C /* ProdutosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924023471ADF42D90028C21C /* ProdutosTableViewController.swift */; };
-		9240234A1ADF43020028C21C /* NovoProdutoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924023491ADF43020028C21C /* NovoProdutoTableViewController.swift */; };
+		9240234A1ADF43020028C21C /* ProdutoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924023491ADF43020028C21C /* ProdutoTableViewController.swift */; };
 		9240234C1ADF43B50028C21C /* ProdutoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240234B1ADF43B50028C21C /* ProdutoManager.swift */; };
+		924599291AF98CFF0013F068 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924599271AF98CFF0013F068 /* Main.storyboard */; };
 		925425271ADC288B009504EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925425261ADC288B009504EE /* AppDelegate.swift */; };
 		9254252A1ADC288B009504EE /* CoreData_Swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 925425281ADC288B009504EE /* CoreData_Swift.xcdatamodeld */; };
 		9254252C1ADC288B009504EE /* MarcasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254252B1ADC288B009504EE /* MarcasTableViewController.swift */; };
-		9254252F1ADC288B009504EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9254252D1ADC288B009504EE /* Main.storyboard */; };
 		925425311ADC288B009504EE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925425301ADC288B009504EE /* Images.xcassets */; };
 		925425341ADC288B009504EE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 925425321ADC288B009504EE /* LaunchScreen.xib */; };
 		925425401ADC288B009504EE /* CoreData_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254253F1ADC288B009504EE /* CoreData_SwiftTests.swift */; };
-		9254254A1ADC31FE009504EE /* NovaMarcaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925425491ADC31FE009504EE /* NovaMarcaViewController.swift */; };
+		9254254A1ADC31FE009504EE /* MarcaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925425491ADC31FE009504EE /* MarcaViewController.swift */; };
 		9254254D1ADC33D8009504EE /* Marca.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254254C1ADC33D8009504EE /* Marca.swift */; };
 		9254254F1ADC33D8009504EE /* Produto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254254E1ADC33D8009504EE /* Produto.swift */; };
 		925425521ADC34EC009504EE /* MarcaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925425511ADC34EC009504EE /* MarcaManager.swift */; };
@@ -35,20 +35,20 @@
 
 /* Begin PBXFileReference section */
 		924023471ADF42D90028C21C /* ProdutosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProdutosTableViewController.swift; sourceTree = "<group>"; };
-		924023491ADF43020028C21C /* NovoProdutoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovoProdutoTableViewController.swift; sourceTree = "<group>"; };
+		924023491ADF43020028C21C /* ProdutoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProdutoTableViewController.swift; sourceTree = "<group>"; };
 		9240234B1ADF43B50028C21C /* ProdutoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProdutoManager.swift; path = Managers/ProdutoManager.swift; sourceTree = "<group>"; };
+		924599281AF98CFF0013F068 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = CoreData_Swift/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		925425211ADC288B009504EE /* CoreData_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreData_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		925425251ADC288B009504EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		925425261ADC288B009504EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		925425291ADC288B009504EE /* CoreData_Swift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData_Swift.xcdatamodel; sourceTree = "<group>"; };
 		9254252B1ADC288B009504EE /* MarcasTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarcasTableViewController.swift; sourceTree = "<group>"; };
-		9254252E1ADC288B009504EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		925425301ADC288B009504EE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		925425331ADC288B009504EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		925425391ADC288B009504EE /* CoreData_SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreData_SwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9254253E1ADC288B009504EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9254253F1ADC288B009504EE /* CoreData_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData_SwiftTests.swift; sourceTree = "<group>"; };
-		925425491ADC31FE009504EE /* NovaMarcaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovaMarcaViewController.swift; sourceTree = "<group>"; };
+		925425491ADC31FE009504EE /* MarcaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarcaViewController.swift; sourceTree = "<group>"; };
 		9254254C1ADC33D8009504EE /* Marca.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Marca.swift; path = Entidades/Marca.swift; sourceTree = "<group>"; };
 		9254254E1ADC33D8009504EE /* Produto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Produto.swift; path = Entidades/Produto.swift; sourceTree = "<group>"; };
 		925425511ADC34EC009504EE /* MarcaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarcaManager.swift; path = Managers/MarcaManager.swift; sourceTree = "<group>"; };
@@ -97,11 +97,11 @@
 				9254254B1ADC3368009504EE /* Entidades */,
 				925425261ADC288B009504EE /* AppDelegate.swift */,
 				9254252B1ADC288B009504EE /* MarcasTableViewController.swift */,
-				925425491ADC31FE009504EE /* NovaMarcaViewController.swift */,
+				925425491ADC31FE009504EE /* MarcaViewController.swift */,
 				924023471ADF42D90028C21C /* ProdutosTableViewController.swift */,
-				924023491ADF43020028C21C /* NovoProdutoTableViewController.swift */,
-				9254252D1ADC288B009504EE /* Main.storyboard */,
+				924023491ADF43020028C21C /* ProdutoTableViewController.swift */,
 				925425301ADC288B009504EE /* Images.xcassets */,
+				924599271AF98CFF0013F068 /* Main.storyboard */,
 				925425321ADC288B009504EE /* LaunchScreen.xib */,
 				925425281ADC288B009504EE /* CoreData_Swift.xcdatamodeld */,
 				925425241ADC288B009504EE /* Supporting Files */,
@@ -232,7 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9254252F1ADC288B009504EE /* Main.storyboard in Resources */,
+				924599291AF98CFF0013F068 /* Main.storyboard in Resources */,
 				925425341ADC288B009504EE /* LaunchScreen.xib in Resources */,
 				925425311ADC288B009504EE /* Images.xcassets in Resources */,
 			);
@@ -255,12 +255,12 @@
 				9254252C1ADC288B009504EE /* MarcasTableViewController.swift in Sources */,
 				924023481ADF42D90028C21C /* ProdutosTableViewController.swift in Sources */,
 				9254252A1ADC288B009504EE /* CoreData_Swift.xcdatamodeld in Sources */,
-				9240234A1ADF43020028C21C /* NovoProdutoTableViewController.swift in Sources */,
+				9240234A1ADF43020028C21C /* ProdutoTableViewController.swift in Sources */,
 				9254254D1ADC33D8009504EE /* Marca.swift in Sources */,
 				9240234C1ADF43B50028C21C /* ProdutoManager.swift in Sources */,
 				925425521ADC34EC009504EE /* MarcaManager.swift in Sources */,
 				925425271ADC288B009504EE /* AppDelegate.swift in Sources */,
-				9254254A1ADC31FE009504EE /* NovaMarcaViewController.swift in Sources */,
+				9254254A1ADC31FE009504EE /* MarcaViewController.swift in Sources */,
 				9254254F1ADC33D8009504EE /* Produto.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,12 +284,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9254252D1ADC288B009504EE /* Main.storyboard */ = {
+		924599271AF98CFF0013F068 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9254252E1ADC288B009504EE /* Base */,
+				924599281AF98CFF0013F068 /* Base */,
 			);
 			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		925425321ADC288B009504EE /* LaunchScreen.xib */ = {

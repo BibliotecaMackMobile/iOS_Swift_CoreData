@@ -10,6 +10,8 @@ import UIKit
 
 class MarcasTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate
 {
+    var marcaSelecionada:Marca?
+    
     lazy var marcas:Array<Marca> = {
         return MarcaManager.sharedInstance.buscarMarcas()
     }()
@@ -44,34 +46,51 @@ class MarcasTableViewController: UITableViewController, UITableViewDataSource, U
         cell.textLabel?.text = item.nome
         cell.detailTextLabel?.text = "\(item.slogan) - Produtos(\(item.produtos.count))"
         
+        
         return cell
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let destino = segue.destinationViewController as? ProdutosTableViewController {
             destino.marca = marcas[tableView.indexPathForSelectedRow()!.row]
+        } else if let destino = segue.destinationViewController as? MarcaViewController {
+            destino.marca = marcaSelecionada
         }
     }
     
+    
     // MARK: UITableViewDelegate Methods
+    
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.Delete {
-            var marcaSelecionada = marcas[indexPath.row]
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {}
+    
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        
+        let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Editar") { (action, indexPath) -> Void in
+            self.marcaSelecionada = self.marcas[indexPath.row]
+            self.performSegueWithIdentifier("marcaSegue", sender: self)
+        }
+        
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Apagar") { (action, indexPath) -> Void in
+            var marcaSelecionada = self.marcas[indexPath.row]
             
             if MarcaManager.sharedInstance.apagarMarca(marcaSelecionada) {
-                marcas.removeAtIndex(indexPath.row)
+                self.marcas.removeAtIndex(indexPath.row)
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
             } else {
                 let alertController = UIAlertController(title: "Remoção", message: "Não foi possível remover a marca", preferredStyle: .Alert)
                 let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
                 alertController.addAction(defaultAction)
-                presentViewController(alertController, animated: true, completion: nil)
+                self.presentViewController(alertController, animated: true, completion: nil)
             }
         }
+        
+        return [editAction, deleteAction]
     }
 }
 

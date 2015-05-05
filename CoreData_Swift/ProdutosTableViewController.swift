@@ -11,6 +11,7 @@ import UIKit
 class ProdutosTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate
 {
     var marca:Marca?
+    var produtoSelecionado:Produto?
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -19,6 +20,7 @@ class ProdutosTableViewController: UITableViewController, UITableViewDataSource,
     override func viewWillAppear(animated: Bool) {
         tableView.reloadData()
         self.navigationItem.title = marca?.nome
+        produtoSelecionado = nil
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -33,14 +35,15 @@ class ProdutosTableViewController: UITableViewController, UITableViewDataSource,
         var cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("produtoCell") as! UITableViewCell
         
         cell.textLabel?.text = item.nome
-        cell.detailTextLabel?.text = "\(item.preco)"
+        cell.detailTextLabel?.text = String(format: "%.2f", item.preco)
         
         return cell
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let destino = segue.destinationViewController as? NovoProdutoTableViewController {
+        if let destino = segue.destinationViewController as? ProdutoTableViewController {
             destino.marca = marca
+            destino.produto = produtoSelecionado
         }
     }
     
@@ -51,20 +54,31 @@ class ProdutosTableViewController: UITableViewController, UITableViewDataSource,
         return true
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.Delete {
-            var produtoSelecionado = marca!.produtos.allObjects[indexPath.row] as! Produto
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {}
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        
+        
+        let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Editar") { (action, indexPath) -> Void in
+            self.produtoSelecionado = self.marca?.produtos.allObjects[indexPath.row] as? Produto
+            self.performSegueWithIdentifier("produtoSegue", sender: self)
+        }
+        
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Apagar") { (action, indexPath) -> Void in
+            
+            var produtoSelecionado = self.marca!.produtos.allObjects[indexPath.row] as! Produto
             
             if ProdutoManager.sharedInstance.apagarProduto(produtoSelecionado){
-                marca!.removeProduto(produtoSelecionado)
+                self.marca!.removeProduto(produtoSelecionado)
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
             } else {
                 let alertController = UIAlertController(title: "Remoção", message: "Não foi possível remover o produto", preferredStyle: .Alert)
                 let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
                 alertController.addAction(defaultAction)
-                presentViewController(alertController, animated: true, completion: nil)
+                self.presentViewController(alertController, animated: true, completion: nil)
             }
         }
+        return [editAction, deleteAction]
     }
 
 }
