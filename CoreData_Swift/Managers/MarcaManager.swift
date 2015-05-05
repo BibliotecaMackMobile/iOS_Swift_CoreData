@@ -50,7 +50,25 @@ public class MarcaManager {
         
         NSFetchRequest(entityName: "FetchRequest")
         
-        
         return Array<Marca>()
+    }
+    
+    
+    
+    func apagarMarca(var marca:Marca) -> Bool
+    {
+        var error:NSError?
+        var marcaNome = marca.nome
+
+        managedContext.deleteObject(marca)
+        managedContext.save(&error)
+        
+        if let e = error {
+            println("Erro ao tentar remover a marca (\(marcaNome)): \(error)")
+            return false
+        } else {
+            println("Marca \(marcaNome) removida com sucesso")
+        }
+        return true
     }
 }

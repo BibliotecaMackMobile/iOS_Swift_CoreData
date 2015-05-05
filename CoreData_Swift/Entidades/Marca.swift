@@ -19,4 +19,9 @@ class Marca: NSManagedObject {
         var produtos = self.mutableSetValueForKey("produtos")
         produtos.addObject(produto)
     }
+    
+    func removeProduto(produto:Produto) {
+        var produtos = self.mutableSetValueForKey("produtos")
+        produtos.removeObject(produto)
+    }
 }

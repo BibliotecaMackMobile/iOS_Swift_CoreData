@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MarcasTableViewController: UITableViewController, UITableViewDataSource
+class MarcasTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate
 {
     lazy var marcas:Array<Marca> = {
         return MarcaManager.sharedInstance.buscarMarcas()
@@ -52,6 +52,26 @@ class MarcasTableViewController: UITableViewController, UITableViewDataSource
             destino.marca = marcas[tableView.indexPathForSelectedRow()!.row]
         }
     }
-
+    
+    // MARK: UITableViewDelegate Methods
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            var marcaSelecionada = marcas[indexPath.row]
+            
+            if MarcaManager.sharedInstance.apagarMarca(marcaSelecionada) {
+                marcas.removeAtIndex(indexPath.row)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+            } else {
+                let alertController = UIAlertController(title: "Remoção", message: "Não foi possível remover a marca", preferredStyle: .Alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                alertController.addAction(defaultAction)
+                presentViewController(alertController, animated: true, completion: nil)
+            }
+        }
+    }
 }
 

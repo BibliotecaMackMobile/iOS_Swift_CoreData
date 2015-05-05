@@ -49,4 +49,21 @@ public class ProdutoManager {
         }
         return Array<Produto>()
     }
+    
+    
+    func apagarProduto(var produto:Produto) -> Bool
+    {
+        var error:NSError?
+        var produtoNome = produto.nome
+        managedContext.deleteObject(produto)
+        managedContext.save(&error)
+        
+        if let e = error {
+            println("Erro ao tentar remover o produto (\(produtoNome)): \(error)")
+            return false
+        } else {
+            println("Produto \(produtoNome) removido com sucesso")
+        }
+        return true
+    }
 }

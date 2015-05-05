@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProdutosTableViewController: UITableViewController, UITableViewDataSource
+class ProdutosTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate
 {
     var marca:Marca?
     
@@ -43,4 +43,28 @@ class ProdutosTableViewController: UITableViewController, UITableViewDataSource
             destino.marca = marca
         }
     }
+    
+    
+    // MARK: UITableViewDelegate Methods
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            var produtoSelecionado = marca!.produtos.allObjects[indexPath.row] as! Produto
+            
+            if ProdutoManager.sharedInstance.apagarProduto(produtoSelecionado){
+                marca!.removeProduto(produtoSelecionado)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+            } else {
+                let alertController = UIAlertController(title: "Remoção", message: "Não foi possível remover o produto", preferredStyle: .Alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                alertController.addAction(defaultAction)
+                presentViewController(alertController, animated: true, completion: nil)
+            }
+        }
+    }
+
 }
