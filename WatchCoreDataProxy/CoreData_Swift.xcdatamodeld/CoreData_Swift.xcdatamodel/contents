@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14E11f" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Marca" representedClassName="CoreData_Swift.Marca" syncable="YES">
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="slogan" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="produtos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Produto" inverseName="marca" inverseEntity="Produto" syncable="YES"/>
+    </entity>
+    <entity name="Produto" representedClassName="CoreData_Swift.Produto" syncable="YES">
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="preco" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="marca" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Marca" inverseName="produtos" inverseEntity="Marca" syncable="YES"/>
+    </entity>
+    <fetchRequest name="FetchRequest" entity="Produto" predicateString="nome CONTAINS &quot;&quot;"/>
+    <elements>
+        <element name="Marca" positionX="-63" positionY="126" width="128" height="90"/>
+        <element name="Produto" positionX="-56" positionY="-18" width="128" height="90"/>
+    </elements>
+</model>
