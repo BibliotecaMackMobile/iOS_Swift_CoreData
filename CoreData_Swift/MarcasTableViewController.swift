@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WatchCoreDataProxy
 
 class MarcasTableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate
 {

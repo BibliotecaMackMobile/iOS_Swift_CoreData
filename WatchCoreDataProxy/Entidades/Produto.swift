@@ -11,8 +11,8 @@ import CoreData
 
 public class Produto: NSManagedObject {
 
-    @NSManaged var nome: String
-    @NSManaged var preco: Double
-    @NSManaged var marca: Marca
+    @NSManaged public var nome: String
+    @NSManaged public var preco: Double
+    @NSManaged public var marca: Marca
 
 }

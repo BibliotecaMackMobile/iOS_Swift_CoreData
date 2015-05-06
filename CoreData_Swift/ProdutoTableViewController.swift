@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WatchCoreDataProxy
 
 class ProdutoTableViewController: UITableViewController
 {

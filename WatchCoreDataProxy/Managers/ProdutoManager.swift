@@ -10,20 +10,22 @@ import CoreData
 import UIKit
 
 public class ProdutoManager {
-    static let sharedInstance:ProdutoManager = ProdutoManager()
+    public static let sharedInstance:ProdutoManager = ProdutoManager()
     static let entityName:String = "Produto"
+
     lazy var managedContext:NSManagedObjectContext = {
         return WatchCoreDataProxy.sharedInstance.managedObjectContext!
     }()
     
     private init(){}
     
-    func novoProduto()->Produto
+    public func novoProduto()->Produto
     {
         return NSEntityDescription.insertNewObjectForEntityForName(ProdutoManager.entityName, inManagedObjectContext: managedContext) as! Produto
     }
     
-    func salvar()
+    
+    public func salvar()
     {
         var error:NSError?
         managedContext.save(&error)
@@ -33,7 +35,7 @@ public class ProdutoManager {
         }
     }
     
-    func buscarProdutos()->Array<Produto>
+    public func buscarProdutos()->Array<Produto>
     {
         let fetchRequest = NSFetchRequest(entityName: ProdutoManager.entityName)
         var error:NSError?
@@ -49,7 +51,7 @@ public class ProdutoManager {
     }
     
     
-    func apagarProduto(var produto:Produto) -> Bool
+    public func apagarProduto(var produto:Produto) -> Bool
     {
         var error:NSError?
         var produtoNome = produto.nome

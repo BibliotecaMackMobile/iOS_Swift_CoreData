@@ -10,8 +10,9 @@ import CoreData
 import UIKit
 
 public class MarcaManager {
-    static let sharedInstance:MarcaManager = MarcaManager()
+    public static let sharedInstance:MarcaManager = MarcaManager()
     static let entityName:String = "Marca"
+    
     lazy var managedContext:NSManagedObjectContext = {
         var c = WatchCoreDataProxy.sharedInstance.managedObjectContext
         return c!
@@ -19,12 +20,12 @@ public class MarcaManager {
     
     private init(){}
     
-    func novaMarca()->Marca
+    public func novaMarca()->Marca
     {
         return NSEntityDescription.insertNewObjectForEntityForName(MarcaManager.entityName, inManagedObjectContext: managedContext) as! Marca
     }
     
-    func salvar()
+    public func salvar()
     {
         var error:NSError?
         managedContext.save(&error)
@@ -34,7 +35,7 @@ public class MarcaManager {
         }
     }
     
-    func buscarMarcas()->Array<Marca>
+    public func buscarMarcas()->Array<Marca>
     {
         let fetchRequest = NSFetchRequest(entityName: MarcaManager.entityName)
         var error:NSError?
@@ -54,7 +55,7 @@ public class MarcaManager {
     
     
     
-    func apagarMarca(var marca:Marca) -> Bool
+    public func apagarMarca(var marca:Marca) -> Bool
     {
         var error:NSError?
         var marcaNome = marca.nome

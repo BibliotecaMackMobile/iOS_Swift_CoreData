@@ -11,16 +11,16 @@ import CoreData
 
 public class Marca: NSManagedObject {
 
-    @NSManaged var nome: String
-    @NSManaged var slogan: String
-    @NSManaged var produtos: NSSet
+    @NSManaged public var nome: String
+    @NSManaged public var slogan: String
+    @NSManaged public var produtos: NSSet
 
-    func addProduto(produto:Produto) {
+    public func addProduto(produto:Produto) {
         var produtos = self.mutableSetValueForKey("produtos")
         produtos.addObject(produto)
     }
     
-    func removeProduto(produto:Produto) {
+    public func removeProduto(produto:Produto) {
         var produtos = self.mutableSetValueForKey("produtos")
         produtos.removeObject(produto)
     }
