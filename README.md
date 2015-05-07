@@ -4,22 +4,16 @@ Esta aplicação permite adicionar Marcas (nome e slogan) e dentro de uma marca 
 
 O modelo utilizado é o seguinte:
 
+```
 +---------------+                  +-----------------+
-
 |     Marca     |                  |     Produto     |
-
 |---------------|  <---------->>   +-----------------+
-
 | nome          |                  | nome            |
-
 | slogan        |                  | preco           |
-
 |               |                  |                 |
-
 | produtos      |                  | marca           |
-
 +---------------+                  +-----------------+
-
+```
 
 ### Trocando para outras versões
 Este repositório possui alguns exemplos de uso de Core Data. Até o momento da escrita deste README existem 3 branchs com as seguintes caracterísitcas
