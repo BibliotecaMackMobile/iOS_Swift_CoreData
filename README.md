@@ -5,12 +5,19 @@ Esta aplicação permite adicionar Marcas (nome e slogan) e dentro de uma marca 
 O modelo utilizado é o seguinte:
 
 +---------------+                  +-----------------+
+
 |     Marca     |                  |     Produto     |
+
 |---------------|  <---------->>   +-----------------+
+
 | nome          |                  | nome            |
+
 | slogan        |                  | preco           |
+
 |               |                  |                 |
+
 | produtos      |                  | marca           |
+
 +---------------+                  +-----------------+
 
 
