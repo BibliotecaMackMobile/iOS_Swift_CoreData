@@ -18,14 +18,16 @@ public class WatchCoreDataProxy {
 //        return Static.instance
 //    }
     
-    let sharedAppGroup:String = "group.mackmobile.CoreDataSwift"
+    public let sharedAppGroup:String = "group.mackmobile.CoreDataSwift"
     
     // MARK: - Core Data stack
     
     public lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "MackMobile.CoreData_Swift" in the application's documents Application Support directory.
-        let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as! NSURL
+//        let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        let url = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier(WatchCoreDataProxy.sharedInstance.sharedAppGroup)
+        return url!
+//        return urls[urls.count-1] as! NSURL
         }()
     
     public lazy var managedObjectModel: NSManagedObjectModel = {
@@ -39,27 +41,21 @@ public class WatchCoreDataProxy {
         }()
     
     public lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
-        // The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
-        // Create the coordinator and store
-        var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("CoreData_Swift.sqlite")
-        var error: NSError? = nil
-        var failureReason = "There was an error creating or loading the application's saved data."
-        if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil, error: &error) == nil {
-            coordinator = nil
-            // Report any error we got.
-            var dict = [String: AnyObject]()
-            dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
-            dict[NSLocalizedFailureReasonErrorKey] = failureReason
-            dict[NSUnderlyingErrorKey] = error
-            error = NSError(domain: "CoreDataInicialization", code: 0001, userInfo: dict)
-            NSLog("Unresolved error \(error), \(error!.userInfo)")
-            // A aplicacao sera finalizada por nao ser possivel usar o CoreData
-            // eh recomendado tratar este erro, exibindo uma orientacao ao usuario para solucao do problema
+        // The persistent store coordinato for the application. This implementation creates and return a coordinato
+        
+        var error:NSError? = nil
+        
+        var sharedContainerURL:NSURL = self.applicationDocumentsDirectory
+        let storeURL = sharedContainerURL.URLByAppendingPathComponent("CoreDataSwift.sqlite")
+
+        var coordinator:NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
+        
+        if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: nil, error: &error) == nil {
+            // error handling goes here
             abort()
         }
-        
         return coordinator
+        
         }()
     
     public lazy var managedObjectContext: NSManagedObjectContext? = {

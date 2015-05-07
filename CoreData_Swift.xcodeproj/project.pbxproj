@@ -1018,6 +1018,7 @@
 				9245994F1AF990CE0013F068 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		924599501AF990CE0013F068 /* Build configuration list for PBXNativeTarget "Core Data WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -1026,6 +1027,7 @@
 				924599521AF990CE0013F068 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		924599731AF991100013F068 /* Build configuration list for PBXNativeTarget "WatchCoreDataProxy" */ = {
 			isa = XCConfigurationList;
@@ -1034,6 +1036,7 @@
 				924599751AF991100013F068 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		924599771AF991100013F068 /* Build configuration list for PBXNativeTarget "WatchCoreDataProxyTests" */ = {
 			isa = XCConfigurationList;
@@ -1042,6 +1045,7 @@
 				924599791AF991100013F068 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9254251C1ADC288B009504EE /* Build configuration list for PBXProject "CoreData_Swift" */ = {
 			isa = XCConfigurationList;

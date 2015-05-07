@@ -12,11 +12,15 @@
                     <items>
                         <table alignment="left" id="oMQ-ic-6b2">
                             <items>
-                                <tableRow id="CQK-WE-gBc" customClass="MarcaRow" customModule="Core_Data_WatchKit_Extension">
+                                <tableRow identifier="MarcaRow" id="CQK-WE-gBc" customClass="MarcaRow" customModule="Core_Data_WatchKit_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="0Og-YB-bwm">
                                         <items>
-                                            <label height="20" alignment="left" text="Marca Nome" id="xzB-Sx-yRg"/>
-                                            <label alignment="left" text="Produtos: " id="8pp-Dg-ybJ"/>
+                                            <label width="1" height="20" alignment="left" text="Marca Nome" textAlignment="left" id="xzB-Sx-yRg">
+                                                <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                            </label>
+                                            <label width="1" alignment="left" text="Produtos: " id="8pp-Dg-ybJ">
+                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                            </label>
                                         </items>
                                     </group>
                                     <connections>

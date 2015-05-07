@@ -18,19 +18,9 @@ class InterfaceController: WKInterfaceController {
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        print("Iniciando")
         // Configure interface objects here.
         reloadTable()
-        
-        WKInterfaceController.openParentApplication(["request": "refreshData"],
-            reply: { (replyInfo, error) -> Void in
-                // TODO: process reply data
-                NSLog("Reply: \(replyInfo)")
-                self.reloadTable()
-        })
     }
-    
-    
 
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
@@ -41,20 +31,20 @@ class InterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
+    
+    override func table(table: WKInterfaceTable, didSelectRowAtIndex rowIndex: Int) {
+        reloadTable()
+    }
 
     
     func reloadTable() {
-        // 1
         marcas = MarcaManager.sharedInstance.buscarMarcas()
-
         marcasTable.setNumberOfRows(marcas!.count, withRowType: "MarcaRow")
         
         for (index, marca) in enumerate(marcas!) {
-            // 2
             if let row = marcasTable.rowControllerAtIndex(index) as? MarcaRow {
-                // 3
                 row.marcaLabel.setText(marca.nome)
-                row.produtosLabel.setText("\(marca.produtos.allObjects.count)")
+                row.produtosLabel.setText("Produtos: \(marca.produtos.allObjects.count)")
             }
         }
     }

@@ -35,12 +35,38 @@ public class MarcaManager {
         }
     }
     
-    public func buscarMarcas()->Array<Marca>
+    public func buscarMarcas()->[Marca]
     {
         let fetchRequest = NSFetchRequest(entityName: MarcaManager.entityName)
         var error:NSError?
         
         let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
+        
+        if !WatchCoreDataProxy.sharedInstance.managedObjectContext!.save(&error) {
+            println("Error fetching on the managed object context")
+        }
+        
+        println(fetchedResults?.count)
+        
+        var marcas:Array<Marca> = []
+        for (index,marca) in enumerate(fetchedResults!) {
+            marcas.append(marca as! Marca)
+        }
+        return marcas
+    }
+
+    public func buscarMarcasTESTE()->[NSManagedObject]
+    {
+        let fetchRequest = NSFetchRequest(entityName: MarcaManager.entityName)
+        var error:NSError?
+        
+        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
+        
+        if !WatchCoreDataProxy.sharedInstance.managedObjectContext!.save(&error) {
+            println("Error fetching on the managed object context")
+        }
+        
+        println(fetchedResults?.count)
         
         if let results = fetchedResults as? [Marca] {
             return results
@@ -52,7 +78,7 @@ public class MarcaManager {
         
         return Array<Marca>()
     }
-    
+
     
     
     public func apagarMarca(var marca:Marca) -> Bool
